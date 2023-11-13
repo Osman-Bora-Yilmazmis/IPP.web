@@ -48,7 +48,7 @@ export const navigation = [
       },
       {
         text: 'Master Approver Management',
-        path: '/master-approver',
+        path: '/master-approver-mgmt',
       },
       {
         text: 'Plant Management',
@@ -69,6 +69,25 @@ export const navigation = [
       {
         text: 'User List',
         path: '/user-list',
+      },
+
+    ]
+  },
+  {
+    text: 'Main Pages',
+    icon: 'folder',
+    items: [
+      {
+        text: 'Form List Page',
+        path: '/form-list-page',
+      },
+      {
+        text: 'Form Page',
+        path: '/form-page',
+      },
+      {
+        text: 'Process Management',
+        path: '/process-management',
       },
 
     ]

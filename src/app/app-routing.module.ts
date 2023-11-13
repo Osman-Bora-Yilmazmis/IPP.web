@@ -18,8 +18,28 @@ import { PMCostModelMasterApproverMgmtComponent } from './pages/admin-panel/pmco
 import { QuestionMgmtComponent } from './pages/admin-panel/question-mgmt/question-mgmt.component';
 import { TypeOfRequestMgmtComponent } from './pages/admin-panel/type-of-request-mgmt/type-of-request-mgmt.component';
 import { UserListComponent } from './pages/admin-panel/user-list/user-list.component';
+import { FormListPageComponent } from './pages/main-pages/form-list-page/form-list-page.component';
+import { FormPageComponent } from './pages/main-pages/form-page/form-page.component';
+import { ProcessManagementComponent } from './pages/main-pages/process-management/process-management.component';
 
 const routes: Routes = [
+
+  //! MAİN PAGES
+  {
+    path: 'form-list-page',
+    component: FormListPageComponent,
+    canActivate: [ AuthGuardService ]
+  },
+  {
+    path: 'form-page',
+    component: FormPageComponent,
+    canActivate: [ AuthGuardService ]
+  },
+  {
+    path: 'process-management',
+    component: ProcessManagementComponent,
+    canActivate: [ AuthGuardService ]
+  },
 
   //! ADMİN PANEL PATHS
   {
@@ -50,11 +70,6 @@ const routes: Routes = [
   {
     path: 'mail-detail-mgmt',
     component: MailDetailMgmtComponent,
-    canActivate: [ AuthGuardService ]
-  },
-  {
-    path: 'master-approver-mgmt',
-    component: MasterApproverMgmtComponent,
     canActivate: [ AuthGuardService ]
   },
   {

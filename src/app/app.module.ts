@@ -19,6 +19,9 @@ import { PMCostModelMasterApproverMgmtComponent } from './pages/admin-panel/pmco
 import { QuestionMgmtComponent } from './pages/admin-panel/question-mgmt/question-mgmt.component';
 import { TypeOfRequestMgmtComponent } from './pages/admin-panel/type-of-request-mgmt/type-of-request-mgmt.component';
 import { UserListComponent } from './pages/admin-panel/user-list/user-list.component';
+import { FormListPageComponent } from './pages/main-pages/form-list-page/form-list-page.component';
+import { FormPageComponent } from './pages/main-pages/form-page/form-page.component';
+import { ProcessManagementComponent } from './pages/main-pages/process-management/process-management.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +37,10 @@ import { UserListComponent } from './pages/admin-panel/user-list/user-list.compo
     PMCostModelMasterApproverMgmtComponent,
     QuestionMgmtComponent,
     TypeOfRequestMgmtComponent,
-    UserListComponent
+    UserListComponent,
+    FormListPageComponent,
+    FormPageComponent,
+    ProcessManagementComponent,
   ],
   imports: [
     BrowserModule,
