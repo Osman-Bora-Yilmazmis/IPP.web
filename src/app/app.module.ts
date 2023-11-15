@@ -23,6 +23,10 @@ import { FormListPageComponent } from './pages/main-pages/form-list-page/form-li
 import { FormPageComponent } from './pages/main-pages/form-page/form-page.component';
 import { ProcessManagementComponent } from './pages/main-pages/process-management/process-management.component';
 
+//! DEV EXPRESS MODULES
+import { DxDataGridModule, DxCheckBoxModule, DxSelectBoxModule } from 'devextreme-angular';
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -53,7 +57,10 @@ import { ProcessManagementComponent } from './pages/main-pages/process-managemen
     ChangePasswordFormModule,
     LoginFormModule,
     UnauthenticatedContentModule,
-    AppRoutingModule
+    AppRoutingModule,
+    DxDataGridModule,
+    DxCheckBoxModule,
+    DxSelectBoxModule
   ],
   providers: [
     AuthService,

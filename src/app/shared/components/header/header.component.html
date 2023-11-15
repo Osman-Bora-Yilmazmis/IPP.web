@@ -11,12 +11,21 @@
         onClick: toggleMenu
       }">
     </dxi-item>
+
+    <!-- Stackpole İcon'u-->
+    <dxi-item location="before" cssClass="header-title" *ngIf="title" [text]="title">
+      <img src="../../../../assets/stackpole-logo-500.png" class="logo-image">
+    </dxi-item>
+
     <dxi-item
       location="before"
       cssClass="header-title"
       *ngIf="title"
       [text]="title">
     </dxi-item>
+
+    
+
     <dxi-item
       location="after"
       locateInMenu="auto"
