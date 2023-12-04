@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { QuestionMgmtService } from 'src/app/shared/services/admin-panel-services/question-mgmt.service';
 
 @Component({
   selector: 'app-question-mgmt',

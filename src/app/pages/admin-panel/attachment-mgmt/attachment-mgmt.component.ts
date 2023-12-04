@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Employee, Service, State } from '../../../shared/services/app.service';
+import { AttachmentMgmtService } from 'src/app/shared/services/admin-panel-services/attachment-mgmt.service';
 import { OnInit} from '@angular/core';
 import { exportDataGrid } from 'devextreme/pdf_exporter';
 import { jsPDF } from 'jspdf';

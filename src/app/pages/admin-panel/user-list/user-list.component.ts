@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { UserListService } from 'src/app/shared/services/admin-panel-services/user-list.service';
 
 @Component({
   selector: 'app-user-list',

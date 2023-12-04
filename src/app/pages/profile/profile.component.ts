@@ -10,6 +10,7 @@ export class ProfileComponent {
   colCountByScreen: object;
 
   constructor() {
+    //Kullanıcı giriş yaptıktan sonra get istegi atılarak profil kısmındaki bilgiler getirilecektir
     this.employee = {
       ID: 7,
       FirstName: 'Sandra',

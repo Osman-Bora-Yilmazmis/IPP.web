@@ -13,7 +13,7 @@ export class AppComponent  {
 
   constructor(private authService: AuthService, private screen: ScreenService, public appInfo: AppInfoService) { }
 
-  isAuthenticated() {
+  isAuthenticated() { //Kullanıcı girişi başarılı mı diye kontrol eder sonra main-page'e yönlendirir
     return this.authService.loggedIn;
   }
 }

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { CurrencyMgmtService } from 'src/app/shared/services/admin-panel-services/currency-mgmt.service';
 
 @Component({
   selector: 'app-currency-mgmt',
