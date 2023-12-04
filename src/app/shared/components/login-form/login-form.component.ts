@@ -19,10 +19,11 @@ export class LoginFormComponent {
   constructor(private authService: AuthService, private router: Router) { }
 
   async onSubmit(e: Event) {
+    debugger;
     e.preventDefault();
     const { email, password } = this.formData;
     this.loading = true;
-
+    
     const result = await this.authService.logIn(email, password);
     if (!result.isOk) {
       this.loading = false;
