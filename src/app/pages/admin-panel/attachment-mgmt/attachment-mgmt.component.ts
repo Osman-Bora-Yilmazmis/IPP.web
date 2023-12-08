@@ -1,10 +1,9 @@
 import { Component } from '@angular/core';
-import { Employee, Service, State } from '../../../shared/services/app.service';
+import { Employee, FileItem, Service, State } from '../../../shared/services/app.service';
 import { AttachmentMgmtService } from 'src/app/shared/services/admin-panel-services/attachment-mgmt.service';
 import { OnInit} from '@angular/core';
 import { exportDataGrid } from 'devextreme/pdf_exporter';
 import { jsPDF } from 'jspdf';
-
 
 
 
@@ -16,27 +15,15 @@ import { jsPDF } from 'jspdf';
 })
 
 export class AttachmentMgmtComponent implements OnInit {
-  dataSource: Employee[];
 
-  readonly allowedPageSizes = [5, 10, 20, 'all'];
-
-  states: State[];
-
-  saleAmountHeaderFilter: any;
-
-  applyFilterTypes: any;
-
-  currentFilter: any;
-
-  showFilterRow!: boolean;
-
-  showHeaderFilter!: boolean;
+  fileItems: FileItem[];
 
   constructor(service: Service) {
-    this.dataSource = service.getEmployees();
-    this.states = service.getStates();
-    this.showFilterRow = true;
+    this.fileItems = service.getFileItems();
   }
+
+  
+
 
   onExportingPDF(e:any) {
     const doc = new jsPDF();
@@ -49,8 +36,9 @@ export class AttachmentMgmtComponent implements OnInit {
     });
   }
 
-  
 
   ngOnInit(): void {};
+  
+
 }
 

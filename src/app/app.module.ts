@@ -22,10 +22,12 @@ import { UserListComponent } from './pages/admin-panel/user-list/user-list.compo
 import { FormListPageComponent } from './pages/main-pages/form-list-page/form-list-page.component';
 import { FormPageComponent } from './pages/main-pages/form-page/form-page.component';
 import { ProcessManagementComponent } from './pages/main-pages/process-management/process-management.component';
+import { DetailGridComponent } from './pages/admin-panel/user-list/detail-grid/detail-grid.component';
+
 
 //! DEV EXPRESS MODULES
-import { DxDataGridModule, DxCheckBoxModule, DxSelectBoxModule } from 'devextreme-angular';
-
+import { DxDataGridModule, DxCheckBoxModule, DxSelectBoxModule, DxTabPanelModule, DxTabsModule,DxTemplateModule,DxServerTransferStateModule } from 'devextreme-angular';
+import { DxFileManagerModule, DxPopupModule } from 'devextreme-angular';
 
 @NgModule({
   declarations: [
@@ -45,9 +47,13 @@ import { DxDataGridModule, DxCheckBoxModule, DxSelectBoxModule } from 'devextrem
     FormListPageComponent,
     FormPageComponent,
     ProcessManagementComponent,
+    DetailGridComponent
+    
   ],
   imports: [
     BrowserModule,
+    DxFileManagerModule,
+    DxPopupModule,
     SideNavOuterToolbarModule,
     SideNavInnerToolbarModule,
     SingleCardModule,
@@ -60,7 +66,11 @@ import { DxDataGridModule, DxCheckBoxModule, DxSelectBoxModule } from 'devextrem
     AppRoutingModule,
     DxDataGridModule,
     DxCheckBoxModule,
-    DxSelectBoxModule
+    DxSelectBoxModule,
+    DxTabPanelModule,
+    DxTabsModule,
+    DxTemplateModule,
+    DxServerTransferStateModule,
   ],
   providers: [
     AuthService,

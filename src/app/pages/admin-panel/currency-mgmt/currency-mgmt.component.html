@@ -1,6 +1,137 @@
 <h2 class="content-block">Currency Management</h2>
 
 <div class="content-block dx-card responsive-paddings">
-    <p>currency-mgmt works!</p>
+  <dx-tab-panel
+    #tabPanel
+    [selectedIndex]="0"
+    [loop]="false"
+    [animationEnabled]="true"
+    [swipeEnabled]="true"
+    >
+        <dxi-item title="Exchange Upload">
+          <div id="data-grid-demo">
+            <dx-data-grid
+              id="gridContainer"
+              [dataSource]="dataSource"
+              keyExpr="ID"
+              [showBorders]="true"
+              [columnAutoWidth]="true"
+              [showBorders]="true"
+              (onExporting)="onExporting($event)"
+            >
+    
+            <dxo-grouping [autoExpandAll]="true"></dxo-grouping>
+            <dxo-selection mode="multiple"></dxo-selection> <!-- Birden fazla satır seçebilirsin-->
+    
+            <!-- sütun isimlerini altındaki searchbox filterlar -->
+            <dxo-filter-row
+              [visible]="showFilterRow"
+              [applyFilter]="currentFilter"
+            ></dxo-filter-row>
+    
+            <dxo-header-filter [visible]="true"></dxo-header-filter>
+    
+            <!-- Sağ yukarıdaki searchbox -->
+            <dxo-search-panel 
+              [visible]="true"
+              [width]="240"
+              placeholder="Search..."
+            ></dxo-search-panel>
+    
+            <dxo-paging [pageSize]="10"> </dxo-paging>
+    
+            <dxo-pager
+            [visible]="true"
+            [allowedPageSizes]="allowedPageSizes"
+            [showPageSizeSelector]="true"
+            [showInfo]="true"
+            [showNavigationButtons]="true"
+            >
+            </dxo-pager>
+              
+              <!-- GRİD SÜTUNLARI VE ÖZELLİKLERİ -->
+              
+                <dxi-column dataField="LastName" caption="From Currency" [allowExporting]="true">
+                    <dxi-validation-rule type="required" ></dxi-validation-rule>
+                </dxi-column>
+                <dxi-column dataField="FirstName" caption="To Currency" [allowExporting]="true"></dxi-column>
+                <dxi-column dataField="StateID" caption="Exchange Value" [allowExporting]="true"></dxi-column>
+                <dxi-column dataField="StateID" caption="Year" [allowExporting]="true" ></dxi-column>
+                <dxi-column dataField="StateID" caption="Month" [allowExporting]="true" ></dxi-column>
+                <dxi-column dataField="BoolDeger" caption="Silindi Mi?" dataType="boolean" [allowExporting]="true" ></dxi-column>
+    
+                <dxo-export [enabled]="true" [allowExportSelectedData]="true"></dxo-export>
+                <dxo-export
+                    [enabled]="true"
+                    [formats]="['xlsx']"
+                ></dxo-export>
+            </dx-data-grid>
+            
+          </div>
+          
+        </dxi-item>
+        <dxi-item title="Currency Management">
+          <div id="data-grid-demo">
+            <dx-data-grid
+              id="gridContainer"
+              [dataSource]="dataSource"
+              keyExpr="ID"
+              [showBorders]="true"
+              [columnAutoWidth]="true"
+              [showBorders]="true"
+              (onExporting)="onExporting($event)"
+            >
+    
+            <dxo-grouping [autoExpandAll]="true"></dxo-grouping>
+            <dxo-selection mode="multiple"></dxo-selection> <!-- Birden fazla satır seçebilirsin-->
+    
+            <!-- sütun isimlerini altındaki searchbox filterlar -->
+            <dxo-filter-row
+              [visible]="showFilterRow"
+              [applyFilter]="currentFilter"
+            ></dxo-filter-row>
+    
+            <dxo-header-filter [visible]="true"></dxo-header-filter>
+    
+            <!-- Sağ yukarıdaki searchbox -->
+            <dxo-search-panel 
+              [visible]="true"
+              [width]="240"
+              placeholder="Search..."
+            ></dxo-search-panel>
+    
+            <dxo-paging [pageSize]="10"> </dxo-paging>
+    
+            <dxo-pager
+            [visible]="true"
+            [allowedPageSizes]="allowedPageSizes"
+            [showPageSizeSelector]="true"
+            [showInfo]="true"
+            [showNavigationButtons]="true"
+            >
+            </dxo-pager>
+              
+              <!-- GRİD SÜTUNLARI VE ÖZELLİKLERİ -->
+              <dxi-column dataField="Prefix" caption="Para Birimi Adı" [allowExporting]="true"></dxi-column>
+                <dxi-column dataField="BoolDeger" caption="Silindi Mi?" dataType="boolean" [allowExporting]="true" ></dxi-column>
+                <dxi-column dataField="LastName" caption="Oluşturan" [allowExporting]="true"></dxi-column>
+                <dxi-column dataField="BirthDate" caption="Oluşturma Tarihi" dataType="date" [allowExporting]="true"> </dxi-column>
+                <dxi-column dataField="Position" caption="Değiştiren" [allowExporting]="true" ></dxi-column>
+                <dxi-column dataField="BirthDate" caption="Değiştirme Tarihi" dataType="date" [allowExporting]="true"> </dxi-column>
+                
+                <dxo-export [enabled]="true" [allowExportSelectedData]="true"></dxo-export>
+                <dxo-export
+                    [enabled]="true"
+                    [formats]="['xlsx']"
+                ></dxo-export>
+            </dx-data-grid>
+            
+          </div>
+        </dxi-item>
+
+    </dx-tab-panel>
 </div>
+    
+    
+
 

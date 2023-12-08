@@ -22,6 +22,8 @@ export class Employee {
   Address!: string;
 
   StateID!: number;
+
+  BoolDeger!: boolean
 }
 
 export class State {
@@ -41,6 +43,8 @@ const employees: Employee[] = [{
   Notes: 'John has been in the Audio/Video industry since 1990. He has led DevAv as its CEO since 2003.\r\n\r\nWhen not working hard as the CEO, John loves to golf and bowl. He once bowled a perfect game of 300.',
   Address: '351 S Hill St.',
   StateID: 5,
+  BoolDeger: false,
+
 }, {
   ID: 2,
   FirstName: 'Olivia',
@@ -52,6 +56,7 @@ const employees: Employee[] = [{
   Notes: 'Olivia loves to sell. She has been selling DevAV products since 2012. \r\n\r\nOlivia was homecoming queen in high school. She is expecting her first child in 6 months. Good Luck Olivia.',
   Address: '807 W Paseo Del Mar',
   StateID: 5,
+  BoolDeger: true,
 }, {
   ID: 3,
   FirstName: 'Robert',
@@ -63,6 +68,7 @@ const employees: Employee[] = [{
   Notes: 'Robert was recently voted the CMO of the year by CMO Magazine. He is a proud member of the DevAV Management Team.\r\n\r\nRobert is a championship BBQ chef, so when you get the chance ask him for his secret recipe.',
   Address: '4 Westmoreland Pl.',
   StateID: 4,
+  BoolDeger: false,
 }, {
   ID: 4,
   FirstName: 'Greta',
@@ -74,6 +80,7 @@ const employees: Employee[] = [{
   Notes: "Greta has been DevAV's HR Manager since 2003. She joined DevAV from Sonee Corp.\r\n\r\nGreta is currently training for the NYC marathon. Her best marathon time is 4 hours. Go Greta.",
   Address: '1700 S Grandview Dr.',
   StateID: 11,
+  BoolDeger: false,
 }, {
   ID: 5,
   FirstName: 'Brett',
@@ -85,6 +92,7 @@ const employees: Employee[] = [{
   Notes: 'Brett came to DevAv from Microsoft and has led our IT department since 2012.\r\n\r\nWhen he is not working hard for DevAV, he coaches Little League (he was a high school pitcher).',
   Address: '1120 Old Mill Rd.',
   StateID: 13,
+  BoolDeger: false,
 }, {
   ID: 6,
   FirstName: 'Sandra',
@@ -96,6 +104,7 @@ const employees: Employee[] = [{
   Notes: "Sandra is a CPA and has been our controller since 2008. She loves to interact with staff so if you've not met her, be certain to say hi.\r\n\r\nSandra has 2 daughters both of whom are accomplished gymnasts.",
   Address: '4600 N Virginia Rd.',
   StateID: 44,
+  BoolDeger: false,
 }, {
   ID: 7,
   FirstName: 'Kevin',
@@ -107,6 +116,7 @@ const employees: Employee[] = [{
   Notes: 'Kevin is our hard-working shipping manager and has been helping that department work like clockwork for 18 months.\r\n\r\nWhen not in the office, he is usually on the basketball court playing pick-up games.',
   Address: '424 N Main St.',
   StateID: 5,
+  BoolDeger: true,
 }, {
   ID: 8,
   FirstName: 'Cynthia',
@@ -118,6 +128,7 @@ const employees: Employee[] = [{
   Notes: 'Cindy joined us in 2008 and has been in the HR department for 2 years. \r\n\r\nShe was recently awarded employee of the month. Way to go Cindy!',
   Address: '2211 Bonita Dr.',
   StateID: 4,
+  BoolDeger: true,
 }, {
   ID: 9,
   FirstName: 'Kent',
@@ -129,6 +140,7 @@ const employees: Employee[] = [{
   Notes: 'As our ombudsman, Kent is on the front-lines solving customer problems and helping our partners address issues out in the field.    He is a classically trained musician and is a member of the Chamber Orchestra.',
   Address: '12100 Mora Dr',
   StateID: 26,
+  BoolDeger: true,
 }, {
   ID: 10,
   FirstName: 'Taylor',
@@ -140,6 +152,7 @@ const employees: Employee[] = [{
   Notes: "If you are like the rest of us at DevAV, then you've probably reached out for help from Taylor. He does a great job as a member of our IT department.",
   Address: '7776 Torreyson Dr',
   StateID: 5,
+  BoolDeger: true,
 }, {
   ID: 11,
   FirstName: 'Sam',
@@ -151,6 +164,7 @@ const employees: Employee[] = [{
   Notes: 'Sammy is proud to be a member of the DevAV team. He joined the team in 2012 and has been in the sales department from the beginning.\r\n\r\nHe has just picked up golf so you can find him on the links every weekend.',
   Address: '645 Prospect Crescent',
   StateID: 11,
+  BoolDeger: true,
 }, {
   ID: 12,
   FirstName: 'Kelly',
@@ -162,6 +176,7 @@ const employees: Employee[] = [{
   Notes: "Kelly loves people and that's why she joined DevAV's support department. One of the funniest people in the company, she does stand-up on the weekends at the Laugh Factory.",
   Address: '1601 W Mountain St.',
   StateID: 5,
+  BoolDeger: false,
 }, {
   ID: 13,
   FirstName: 'Natalie',
@@ -173,6 +188,8 @@ const employees: Employee[] = [{
   Notes: 'Natalie travels the US and teaches our partners how to explain the benefits of our products to customers.\r\n\r\nShe is a proud wife and mom and volunteers her time at the elementary school.',
   Address: '6400 E Bixby Hill Rd',
   StateID: 29,
+  BoolDeger: false,
+  
 }, {
   ID: 14,
   FirstName: 'Walter',
@@ -184,6 +201,7 @@ const employees: Employee[] = [{
   Notes: "Walter has been developing apps and websites for DevAV since 2011. His passion is software and if you ever walk by his desk, you'll know why.\r\n\r\nWally once worked 72 hours straight - writing code and fixing bugs.",
   Address: '10385 Shadow Oak Dr',
   StateID: 13,
+  BoolDeger: false,
 }];
 
 const states: State[] = [{
@@ -341,6 +359,78 @@ const states: State[] = [{
   Name: 'North Dakota',
 }];
 
+export class FileItem {
+  name!: string;
+
+  isDirectory!: boolean;
+
+  size?: number;
+
+  items?: FileItem[];
+}
+
+const fileItems: FileItem[] = [{
+  name: 'Documents',
+  isDirectory: true,
+  items: [{
+    name: 'Projects',
+    isDirectory: true,
+    items: [{
+      name: 'About.rtf',
+      isDirectory: false,
+      size: 1024,
+    }, {
+      name: 'Passwords.rtf',
+      isDirectory: false,
+      size: 2048,
+    }],
+  }, {
+    name: 'About.xml',
+    isDirectory: false,
+    size: 1024,
+  }, {
+    name: 'Managers.rtf',
+    isDirectory: false,
+    size: 2048,
+  }, {
+    name: 'ToDo.txt',
+    isDirectory: false,
+    size: 3072,
+  }],
+}, {
+  name: 'Images',
+  isDirectory: true,
+  items: [{
+    name: 'logo.png',
+    isDirectory: false,
+    size: 20480,
+  }, {
+    name: 'banner.gif',
+    isDirectory: false,
+    size: 10240,
+  }],
+}, {
+  name: 'System',
+  isDirectory: true,
+  items: [{
+    name: 'Employees.txt',
+    isDirectory: false,
+    size: 3072,
+  }, {
+    name: 'PasswordList.txt',
+    isDirectory: false,
+    size: 5120,
+  }],
+}, {
+  name: 'Description.rtf',
+  isDirectory: false,
+  size: 1024,
+}, {
+  name: 'Description.txt',
+  isDirectory: false,
+  size: 2048,
+}];
+
 @Injectable()
 export class Service {
   getEmployees() {
@@ -349,5 +439,9 @@ export class Service {
 
   getStates() {
     return states;
+  }
+
+  getFileItems(): FileItem[] {
+    return fileItems;
   }
 }

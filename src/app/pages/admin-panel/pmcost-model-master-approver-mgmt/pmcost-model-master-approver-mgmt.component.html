@@ -1,6 +1,86 @@
 <h2 class="content-block">PM Cost Model Master Approver Management</h2>
 
 <div class="content-block dx-card responsive-paddings">
-    <p>pmcost-model-master-approver-mgmt works!</p>
+    <div id="data-grid-demo">
+        <dx-data-grid
+          id="gridContainer"
+          [dataSource]="dataSource"
+          keyExpr="ID"
+          [showBorders]="true"
+          (onExporting)="onExporting($event)"
+        >
+
+        <dxo-grouping [autoExpandAll]="true"></dxo-grouping>
+        <dxo-selection mode="multiple"></dxo-selection> <!-- Birden fazla satır seçebilirsin-->
+
+        <!-- sütun isimlerini altındaki searchbox filterlar -->
+        <dxo-filter-row
+          [visible]="showFilterRow"
+          [applyFilter]="currentFilter"
+        ></dxo-filter-row>
+
+        <dxo-header-filter [visible]="true"></dxo-header-filter>
+
+        <!-- Sağ yukarıdaki searchbox -->
+        <dxo-search-panel 
+          [visible]="true"
+          [width]="240"
+          placeholder="Search..."
+        ></dxo-search-panel>
+
+        <dxo-paging [pageSize]="10"> </dxo-paging>
+
+        <dxo-pager
+        [visible]="true"
+        [allowedPageSizes]="allowedPageSizes"
+        [showPageSizeSelector]="true"
+        [showInfo]="true"
+        [showNavigationButtons]="true"
+        >
+        </dxo-pager>
+
+          <!-- edit'e tıklanıldıktan sonra çıkan pop-up-->
+          <dxo-editing
+            mode="form"
+            [allowUpdating]="true"
+            [allowAdding]="true"
+            [allowDeleting]="true"
+            [form]="{
+                items: [
+                {
+                    dataField: 'Prefix',
+                    label: {
+                    text: 'Capital İsmi'
+                    }
+                }
+                ]
+            }"
+            >
+            </dxo-editing>
+          
+          <!-- GRİD SÜTUNLARI VE ÖZELLİKLERİ -->
+          <dxi-column dataField="Prefix" caption="Kullanıcı İsmi" [allowExporting]="true">
+            <dxi-validation-rule type="required" ></dxi-validation-rule>
+          </dxi-column>
+          <dxi-column dataField="StateID" caption="Sıralama" [allowExporting]="true" ></dxi-column>
+          <dxi-column dataField="LastName" caption="Rol" [allowExporting]="true"></dxi-column>
+          <dxi-column dataField="StateID" caption="Tutar Limiti" [allowExporting]="true" ></dxi-column>
+          <dxi-column dataField="Position" caption="Birim" [allowExporting]="true" ></dxi-column>
+          <dxi-column dataField="FirstName" caption="Kullanıcı Grubu" [allowExporting]="true"></dxi-column>
+          <dxi-column dataField="BoolDeger" caption="Silindi Mi?" dataType="boolean" [allowExporting]="true" ></dxi-column>
+          <dxi-column dataField="LastName" caption="Oluşturan" [allowExporting]="true"></dxi-column>
+          <dxi-column dataField="BirthDate" caption="Oluşturma Tarihi" dataType="date" [allowExporting]="true"> </dxi-column>
+          <dxi-column dataField="Position" caption="Değiştiren" [allowExporting]="true" ></dxi-column>
+          <dxi-column dataField="BirthDate" caption="Değiştirme Tarihi" dataType="date" [allowExporting]="true"> </dxi-column>
+            
+            
+            <dxo-export [enabled]="true" [allowExportSelectedData]="true"></dxo-export>
+            <dxo-export
+                [enabled]="true"
+                [formats]="['xlsx']"
+            ></dxo-export>
+        </dx-data-grid>
+        
+      </div>
 </div>
 

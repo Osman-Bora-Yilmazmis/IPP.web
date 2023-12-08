@@ -1,0 +1,23 @@
+<dx-data-grid
+  [dataSource]="tasksDataSource"
+  [showBorders]="true"
+>
+  <dxi-column dataField="Subject" caption="Pretty Name" dataType="string"></dxi-column>
+  <dxi-column dataField="StartDate" caption="Sil" dataType="boolean"></dxi-column>
+  <dxi-column dataField="DueDate" caption="Ekle" dataType="boolean"></dxi-column>
+  <dxi-column dataField="Priority" caption="Güncelle" dataType="boolean"></dxi-column>
+  <dxi-column dataField="Priority" caption="Göster" dataType="boolean"></dxi-column>
+  <dxi-column dataField="Priority" caption="Tablo Detay" dataType="boolean"></dxi-column>
+
+  <dxo-paging [pageSize]="10"> </dxo-paging>
+
+        <dxo-pager
+        [visible]="true"
+        [allowedPageSizes]="allowedPageSizes"
+        [showPageSizeSelector]="true"
+        [showInfo]="true"
+        [showNavigationButtons]="true"
+        >
+    </dxo-pager>
+</dx-data-grid>
+

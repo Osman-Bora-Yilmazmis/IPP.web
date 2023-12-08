@@ -1,7 +1,185 @@
 <h2 class="content-block">User List Management</h2>
 
 <div class="content-block dx-card responsive-paddings">
-    <p>user-list works!</p>
+  <dx-tab-panel
+    #tabPanel
+    [selectedIndex]="0"
+    [loop]="false"
+    [animationEnabled]="true"
+    [swipeEnabled]="true"
+    >
+        <dxi-item title="User List">
+          <dx-data-grid
+          id="gridContainer"
+          [dataSource]="employees"
+          keyExpr="ID"
+          [showBorders]="true"
+          (onExporting)="onExporting($event)"
+        >
+
+        <dxo-grouping [autoExpandAll]="true"></dxo-grouping>
+        <dxo-selection mode="multiple"></dxo-selection> <!-- Birden fazla satır seçebilirsin-->
+
+        <!-- sütun isimlerini altındaki searchbox filterlar -->
+        <dxo-filter-row
+          [visible]="showFilterRow"
+          [applyFilter]="currentFilter"
+        ></dxo-filter-row>
+
+        <dxo-header-filter [visible]="true"></dxo-header-filter>
+
+        <!-- Sağ yukarıdaki searchbox -->
+        <dxo-search-panel 
+          [visible]="true"
+          [width]="240"
+          placeholder="Search..."
+        ></dxo-search-panel>
+
+        <dxo-paging [pageSize]="10"> </dxo-paging>
+
+        <dxo-pager
+        [visible]="true"
+        [allowedPageSizes]="allowedPageSizes"
+        [showPageSizeSelector]="true"
+        [showInfo]="true"
+        [showNavigationButtons]="true"
+        >
+        </dxo-pager>
+
+          <!-- edit'e tıklanıldıktan sonra çıkan pop-up-->
+          <dxo-editing
+            mode="form"
+            [allowUpdating]="true"
+            [allowAdding]="true"
+            [allowDeleting]="true"
+            [form]="{
+                items: [
+                {
+                    dataField: 'Prefix',
+                    label: {
+                    text: 'Capital İsmi'
+                    }
+                }
+                ]
+            }"
+            >
+            </dxo-editing>
+          
+          <!-- GRİD SÜTUNLARI VE ÖZELLİKLERİ -->
+          <dxi-column dataField="Prefix" caption="Domain" [allowExporting]="true">
+            <dxi-validation-rule type="required" ></dxi-validation-rule>
+          </dxi-column>
+          
+          <dxi-column dataField="Prefix"  caption="İsim"></dxi-column>
+          <dxi-column dataField="FirstName" caption="Username"></dxi-column>
+          <dxi-column dataField="LastName" caption="Soyadı"></dxi-column>
+          <dxi-column dataField="Position" caption="Email"></dxi-column>
+          <dxi-column dataField="LastName" caption="Departman"></dxi-column>
+          <dxi-column dataField="Position" caption="Kullanıcı Grubu"></dxi-column>
+          <dxi-column dataField="BirthDate" dataType="date" caption="UserTimeZone"></dxi-column>
+          <dxi-column dataField="State"></dxi-column>
+          <dxi-column dataField="BirthDate" dataType="date"></dxi-column>
+          <dxi-column dataField="BoolDeger" caption="Silindi Mi?" dataType="boolean" [allowExporting]="true" ></dxi-column>
+
+          
+          <dxo-master-detail [enabled]="true" template="detail"></dxo-master-detail>
+            <div *dxTemplate="let employee of 'detail'">
+              <div class="master-detail-caption">{{
+                employee.data.FirstName + " " + employee.data.LastName + "'s Tasks:"
+              }}</div>
+              <app-detail-grid [key]="employee.key"></app-detail-grid>
+            </div>
+            
+            <dxo-export [enabled]="true" [allowExportSelectedData]="true"></dxo-export>
+            <dxo-export
+                [enabled]="true"
+                [formats]="['xlsx']"
+            ></dxo-export>
+        </dx-data-grid>
+        </dxi-item>
+        <dxi-item title="User Group List">
+          <p>Yeni grup için önce bölge yönetiminden yeni bir bölge eklemelisin</p>
+          <dx-data-grid
+          id="gridContainer"
+          [dataSource]="employees"
+          keyExpr="ID"
+          [columnAutoWidth]="true"
+          [showBorders]="true"
+          (onExporting)="onExporting($event)"
+        >
+
+        <dxo-grouping [autoExpandAll]="true"></dxo-grouping>
+        <dxo-selection mode="multiple"></dxo-selection> <!-- Birden fazla satır seçebilirsin-->
+
+        <!-- sütun isimlerini altındaki searchbox filterlar -->
+        <dxo-filter-row
+          [visible]="showFilterRow"
+          [applyFilter]="currentFilter"
+        ></dxo-filter-row>
+
+        <dxo-header-filter [visible]="true"></dxo-header-filter>
+
+        <!-- Sağ yukarıdaki searchbox -->
+        <dxo-search-panel 
+          [visible]="true"
+          [width]="240"
+          placeholder="Search..."
+        ></dxo-search-panel>
+
+        <dxo-paging [pageSize]="10"> </dxo-paging>
+
+        <dxo-pager
+        [visible]="true"
+        [allowedPageSizes]="allowedPageSizes"
+        [showPageSizeSelector]="true"
+        [showInfo]="true"
+        [showNavigationButtons]="true"
+        >
+        </dxo-pager>
+
+          <!-- edit'e tıklanıldıktan sonra çıkan pop-up-->
+          <dxo-editing
+            mode="form"
+            [allowUpdating]="true"
+            [allowAdding]="true"
+            [allowDeleting]="true"
+            [form]="{
+                items: [
+                {
+                    dataField: 'Prefix',
+                    label: {
+                    text: 'Capital İsmi'
+                    }
+                }
+                ]
+            }"
+            >
+            </dxo-editing>
+          
+          <!-- GRİD SÜTUNLARI VE ÖZELLİKLERİ -->
+          <dxi-column dataField="Prefix" caption="İsim" [allowExporting]="true">
+            <dxi-validation-rule type="required" ></dxi-validation-rule>
+          </dxi-column>
+          
+          <dxi-column dataField="Prefix"  caption="Bölge"></dxi-column>
+          <dxi-column dataField="FirstName" caption="Rol"></dxi-column>
+          <dxi-column dataField="LastName" caption="Soyadı"></dxi-column>
+          <dxi-column dataField="Position" caption="Birim"></dxi-column>
+          <dxi-column dataField="LastName" caption="Description"></dxi-column>
+          <dxi-column dataField="BoolDeger" caption="Silindi Mi?" dataType="boolean" [allowExporting]="true" ></dxi-column>
+                    
+            
+            <dxo-export [enabled]="true" [allowExportSelectedData]="true"></dxo-export>
+            <dxo-export
+                [enabled]="true"
+                [formats]="['xlsx']"
+            ></dxo-export>
+        </dx-data-grid>
+        </dxi-item>
+
+    </dx-tab-panel>
 </div>
+    
+    
 
 
