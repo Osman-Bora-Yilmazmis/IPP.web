@@ -110,10 +110,6 @@ if (userRole === 1) { // Normal User
           text: 'Profile',
           path: '/profile'
         },
-        {
-          text: 'Tasks',
-          path: '/tasks'
-        }
       ]
     },
     {

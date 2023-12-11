@@ -1,13 +1,15 @@
 export class Capital {
-    CapitalName!: number;
+    id!: number
+
+    capitalname!: string;
   
-    isDeleted!: boolean;
+    isdeleted!: boolean;
   
-    Creator!: string;
+    fkcreatedby!: number;
   
-    CreationDate!: string;
+    createdat!: Date;
   
-    Changing!: string;
+    fkchangedby!: number;
   
-    ReplacementDate!: string;
+    changedat!: Date;
 }

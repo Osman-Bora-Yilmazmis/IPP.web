@@ -4,7 +4,6 @@ import { LoginFormComponent, ResetPasswordFormComponent, CreateAccountFormCompon
 import { AuthGuardService } from './shared/services';
 import { HomeComponent } from './pages/home/home.component';
 import { ProfileComponent } from './pages/profile/profile.component';
-import { TasksComponent } from './pages/tasks/tasks.component';
 import { DxDataGridModule, DxFormModule } from 'devextreme-angular';
 import { AttachmentMgmtComponent } from './pages/admin-panel/attachment-mgmt/attachment-mgmt.component';
 import { CapitalMgmtComponent } from './pages/admin-panel/capital-mgmt/capital-mgmt.component';
@@ -104,11 +103,7 @@ const routes: Routes = [
   },
 
   //! DEFAULT PATHS
-  {
-    path: 'tasks',
-    component: TasksComponent,
-    canActivate: [ AuthGuardService ]
-  },
+  
   {
     path: 'profile',
     component: ProfileComponent,
@@ -152,7 +147,6 @@ const routes: Routes = [
   declarations: [
     HomeComponent,
     ProfileComponent,
-    TasksComponent
   ]
 })
 export class AppRoutingModule { }
